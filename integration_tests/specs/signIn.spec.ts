@@ -93,14 +93,14 @@ test.describe('SignIn', () => {
 
   test.describe('Tile card visibility per role', () => {
     const cardsByRole = [
-      { testId: 'cashbook', role: 'ROLE_MTP_PRISON_CLERK' },
-      { testId: 'bankadmin', role: 'ROLE_MTP_BANK_ADMIN' },
-      { testId: 'nomsops', role: 'ROLE_MTP_SECURITY' },
+      { testId: 'cashbook', role: 'MTP_CASH_BOOK' },
+      { testId: 'bankadmin', role: 'MTP_BANK_ADMIN' },
+      { testId: 'nomsops', role: 'MTP_NOMS_OPS' },
     ]
 
     for (const { testId, role } of cardsByRole) {
       test(`${testId} tile is visible with the ${role} role`, async ({ page }) => {
-        await login(page, { roles: [role] })
+        await login(page, { roles: [`ROLE_${role}`] })
 
         await HomePage.verifyOnPage(page)
 
