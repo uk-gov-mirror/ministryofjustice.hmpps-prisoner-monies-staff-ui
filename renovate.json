@@ -12,6 +12,13 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "all non major NPM dependencies",
       "groupSlug": "all-npm-minor-patch",
+      "schedule": ["before 6am on monday"],
+      "minimumReleaseAge": "7 days"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["major"],
+      "schedule": ["before 6am on the first monday of the month"],
       "minimumReleaseAge": "7 days"
     },
     {
@@ -47,6 +54,8 @@
     }
   ],
   "vulnerabilityAlerts": {
+    "groupName": null,
+    "schedule": ["at any time"],
     "minimumReleaseAge": null
   },
   "platformCommit": "enabled"
